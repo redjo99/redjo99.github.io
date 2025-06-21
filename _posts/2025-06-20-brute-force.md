@@ -1,5 +1,5 @@
 ---
-title: "[Brute Force] 소개 및 기초문제제"
+title: "[Brute Force] 소개 및 기초문제"
 excerpt: "모든 알고리즘의 기초가 되는 브루트 포스와 완전탐색을 소개합니다."
 
 categories:
