@@ -49,6 +49,13 @@ TSP는 computer science 분야에서 아주 중요하게 취급되므로,
 10!은 10^8보다 현저히 작은 값이고, 시간 제한도 2초이므로 Brute Force로 풀면 되겠습니다.  
 
   그럼 이번에도 자유롭게 풀어 보시고, 아래의 제 코드를 참고하시죠!  
+(이번에도 정답은 맨 아래에)  
   
+<script src="https://gist.github.com/redjo99/5809ae0ea954d98cbaf42362aec92b90.js"></script>  
+![tsp2 starting test](assets/images/posts_img/tsp2_starting_test.png)  
+  
+  우선 입력을 정상적으로 받는지, 초기 출발점과 도착점이 정상적으로 설정되는지 테스트했습니다.  
+출력을 보아 문제 없으므로 코드 작성을 이어갔습니다.  
+
   
 그럼 다음 포스팅에서 새로운 Brute Force 예제와 함께 만나요!
