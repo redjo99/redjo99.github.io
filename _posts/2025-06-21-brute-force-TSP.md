@@ -33,7 +33,7 @@ TSP는 computer science 분야에서 아주 중요하게 취급되므로,
   
 ![tsp2 map](/assets/images/posts_img/TSP2_baekjoon.png)
   
-이 문제는 우리가 답을 찾을 때도 머릿속에서 모든 경우의 경로 합을 계산하며,  
+이 문제는 우리가 답을 찾을 때도 머릿속에서 모든 순회 경우의 경로 합을 계산하며,  
 그 중 가장 작은 값을 답으로 정한다는 것을 알 수 있습니다.  
 따라서 고민없이 Brute Force를 적용하면 된다는 건데요,  
 혹시 모르니 시간복잡도 계산부터 해 봅시다!  
@@ -52,10 +52,31 @@ TSP는 computer science 분야에서 아주 중요하게 취급되므로,
 (이번에도 정답은 맨 아래에)  
   
 <script src="https://gist.github.com/redjo99/5809ae0ea954d98cbaf42362aec92b90.js"></script>  
-![tsp2 starting test](assets/images/posts_img/tsp2_starting_test.png)  
+![tsp2 starting test](/assets/images/posts_img/tsp2_starting_test.png)  
   
   우선 입력을 정상적으로 받는지, 초기 출발점과 도착점이 정상적으로 설정되는지 테스트했습니다.  
 출력을 보아 문제 없으므로 코드 작성을 이어갔습니다.  
-
   
+<script src="https://gist.github.com/redjo99/4363fba7d821026b0e1608d1a979bf71.js"></script>  
+  
+재귀함수 기법을 써서(여기선 백트래킹을 사용했는데, 이에 대해서는 백트래킹 파트에서 설명하겠습니다.)  
+풀어봤는데, 예제에 대해 21이라는 오답이 나왔습니다.  
+  
+원인을 파악하기 위해 중간중간 출력을 넣어 확인하겠습니다.  
+코드에서 dist 값에 w[x][i]를 더하거나 뺄 때마다, w[x][i] 값을 출력해 봤습니다.  
+  
+![tsp2 debug 1](/assets/images/posts_img/tsp2_1.png)  
+    
+위에 제가 그려놓은 지도 그림과 함께 보시면 이해가 쉬울 겁니다.  
+처음에는 1에서 2로 출발하므로, plus 10이 맞죠.  
+그런데.. plus 5? 아하, 원인을 파악했습니다.  
+모든 정점을 탐방해야만 처음 정점으로 돌아갈 수 있는데, 그 조건을 넣지 않아 중간에 돌아가 버렸네요.  
+그러면 그 조건을 추가해 보겠습니다!  
+
+
+
+
+
+
+
 그럼 다음 포스팅에서 새로운 Brute Force 예제와 함께 만나요!
