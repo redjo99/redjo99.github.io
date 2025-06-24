@@ -7,13 +7,13 @@ categories:
 tags:
   - [algorithm, bruteforce]
 
-permalink: /bruteforce/2025-06-22-brute-force-omok/
+permalink: /bruteforce/2025-06-22-brute-force-오목/
 
 toc: true
 toc_sticky: true
 
 date: 2025-06-22
-last_modified_at: 2025-06-22
+last_modified_at: 2025-06-24
 ---
 
 ## 🦥 본문
