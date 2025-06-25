@@ -1,5 +1,5 @@
 ---
-title: "[Brute Force] 대칭 그림 2"
+title: "[Brute Force] 대칭 그림2"
 excerpt: "고난이도의 Brute Force 문제에 도전해봅시다."
 
 categories:
@@ -7,7 +7,7 @@ categories:
 tags:
   - [algorithm, bruteforce]
 
-permalink: /bruteforce/2025-06-24-brute-force-symmetric-picture/
+permalink: /bruteforce/2025-06-24-brute-force-대칭-그림2/
 
 toc: true
 toc_sticky: true
@@ -18,17 +18,13 @@ last_modified_at: 2025-06-24
 
 ## 🦥 본문
 
-Brute Force의 세 번째 문제로는,
-오목 문제를 가져왔습니다.
-
-실제 오목처럼 경우의 수가 아주 많아 그만큼 구현이 복잡하고,  
-백준에서의 정답률도 매우 낮은 편입니다.
-하지만 저번 문제처럼 다른 알고리즘이 섞이는 경우는 없습니다. 그럼 문제 보시죠!  
+Brute Force의 마지막 문제로, 다이아 난이도의 문제를 가져왔습니다.
   
-[오목 - 백준](https://www.acmicpc.net/problem/2615)  
+이번 문제로 Brute Force를 마스터한 다음, 다음 알고리즘으로 넘어가겠습니다! 문제 보시죠~  
   
-다행히도 진짜 오목을 두라는 건 아니었네요.  
-완료된 판에서 승부만 판단하면 되니, 오목이 완성되는 경우만 잘 따져보면 되겠습니다!  
+[대칭 그림2 - 백준](https://www.acmicpc.net/problem/2334)  
+  
+  
 자 그럼 풀어보시고, 아래 제 코드 보시죠! (정답은 맨 아래에)  
   
 <script src="https://gist.github.com/redjo99/08de12fe590a590a780ec4e61234a15d.js"></script>  
