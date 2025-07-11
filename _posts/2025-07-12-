@@ -1,0 +1,118 @@
+---
+title: "[프로그래머스] LV1-1. "
+excerpt: "코딩테스트에 자주 사용되는 프로그래머스 문제를 풀어봅시다."
+
+categories:
+  - programmers
+tags:
+  - [algorithm, programmers]
+
+permalink: /programmers/2025-0/
+
+toc: true
+toc_sticky: true
+
+date: 2025-07-12
+last_modified_at: 2025-07-12
+---
+
+## 🦥 본문
+
+안녕하세요, 오늘부터 며칠간은 Programmers 사이트의 문제를 풀어볼 예정입니다.  
+제가 해당 사이트를 이용하는 코딩테스트가 잡혀 그렇긴 하지만,  
+최근 많은 기업들이 이용하는 플랫폼이니만큼 여러분도 익숙해지면 도움될 것입니다.  
+  
+참고로 LV0 문제들은 너무 쉬워서, 여기 따로 기록하진 않겠습니다.  
+(몇 문제 풀어보니... 코딩 입문자가 아니라면 굳이 시도할 필요는 없을 듯 합니다.)  
+그래서 여기선 LV1 문제부터 소개하겠습니다.  
+그럼 문제 만나보시죠!  
+  
+[택배 상자 꺼내기 - Programmers](https://school.programmers.co.kr/learn/courses/30/lessons/389478)  
+  
+잘하면 자료구조를 쓰지 않고도 풀 수 있을 것 같지만,  
+아이디어가 금방 떠오르지 않아 그냥 2차원 배열을 쓰기로 했습니다.  
+그렇게 큰 수를 다루는 문제도 아니기 때문에 메모리도 문제없을 거고요.  
+  
+<script src="https://gist.github.com/redjo99/02cf0c3877020e7d70f4db95f31aa541.js"></script>  
+  
+문제 그림처럼, 방향을 바꿔가며 택배 상자를 하나하나 쌓았습니다.  
+시간복잡도를 생각해보면, 
+  
+1)  
+ListNode* node2 = new ListNode();   // 값이 0인 노드 node2 생성.  
+ListNode* node3 = new ListNode(3);   // 값이 3인 노드 node3 생성.  
+ListNode* node1 = new ListNode(5, &node2);   // 값이 5인 node1을 생성하고, node2 앞에 붙임.  
+node2->next = node3;   // node2 뒤에 node3를 붙임.
+  
+2)  
+ListNode* node1 = new ListNode(5);  
+node1->next = new ListNode(0);   // 5 뒤에 0 붙임.   
+node1->next->next = new ListNode(3);   // 5 뒤의 뒤에 3 붙임.  
+  
+이런 식으로 여러 가지 방법이 있습니다.  
+  
+참고로, 지금은 함수 내부 작업이라 언급하지 않았지만  
+new는 동적 메모리 할당입니다.  
+따라서 함수 외부 코드까지 작업하실 때는 메모리 해제가 필요하며,  
+linked list의 맨 뒤에서부터 역순으로 delete를 실행하면 됩니다.  
+바로 위의 예시에선,  
+delete node1->next->next;  
+delete node1->next;  
+delete node1;  
+순서로 실행하시면 됩니다.  
+  
+2. 중간에 삽입  
+5 -> 0 -> 3 리스트가 생성된 상태에서,  
+4를 중간에 삽입해 5 -> 4 -> 0 -> 3으로 만들어봅시다.  
+1 - 1)의 코드가 존재하는 상태에서 네 번째 노드를 추가해볼게요.  
+  
+ListNode* node4 = new ListNode(4);   // 새 노드(4) 추가.  
+node4->next = node2;   // 4 뒤에 0 붙임.  
+node1->next = node4;   // 5 뒤에 4 붙임.  
+  
+요약하자면, 5 - 0 연결을 끊고, 5 - 4 연결과 4 - 0 연결을 만드는 겁니다.  
+새 연결을 만들 때 기존 5 - 0 연결은 끊어지니 따로 끊을 필요는 없는 거죠.  
+  
+그럼 중간 삽입이 아니라 처음 위치에 삽입하려면 어떻게 할까요?  
+이번에는 5 -> 0 -> 3 리스트를 4 -> 5 -> 0 -> 3으로 만들어봅시다.  
+아까처럼 1 - 1) 상황에서 진행해보겠습니다.  
+  
+ListNode* node4 = new ListNode(4);  
+node4->next = node1;   // 4 뒤에 5 붙임.  
+node1 = node4;   // 노드 시작점을 5에서 4로 변경.
+  
+과정은 중간 삽입과 비슷하지만,  
+노드 시작점을 변경하는 코드가 필요하다는 걸 기억하세요!  
+  
+3. 리스트 출력  
+앞에서 만든 4 -> 5 -> 0 -> 3 리스트를 출력해봅시다.
+  
+ListNode* current = node1;   // 첫 번째 노드부터 시작.  
+while (current != nullptr) {   // 다음 노드 없을 때까지 반복.  
+  cout << current->val << endl;  
+  current = current->next;   // 노드 하나씩 넘어감.
+}
+  
+  
+자 그럼 이제, 문제를 풀 준비가 되었습니다. 알고리즘을 생각해 볼까요?  
+  
+
+  
+코드 확인해 보시죠!  
+  
+<script src="https://gist.github.com/redjo99/d7a3a9ceec3058ef872554a48e37f1d3.js"></script>  
+  
+  
+  
+실제로 채점 결과 정답이었고, 아래의 결과를 얻었습니다.  
+  
+|  | Runtime | Memory |
+| --- | --- | --- |
+| **Result** | 1ms | 14.76MB |
+| **Beats** | 80.14% | 51.13% |
+   
+예상했던 대로 시간에서 우수한 성능, 메모리에선 평균적인 성능이 나왔습니다.  
+  
+코드 길이는 짧았지만, 많은 요소를 생각해야 하는 좋은 문제였네요.  
+  
+그럼 다음 포스팅에서 LeetCode 3번 문제와 함께 만나뵙겠습니다!
