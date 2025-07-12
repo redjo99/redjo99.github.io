@@ -1,13 +1,13 @@
 ---
-title: "[프로그래머스] LV1-1. "
-excerpt: "코딩테스트에 자주 사용되는 프로그래머스 문제를 풀어봅시다."
+title: "[프로그래머스] MySQL LV1. 특정 형질을 가지는 대장균 찾기"
+excerpt: "프로그래머스의 MySQL LV1 대장균 문제를 풀어봅시다."
 
 categories:
   - programmers
 tags:
-  - [algorithm, programmers]
+  - [mysql, programmers]
 
-permalink: /programmers/2025-0/
+permalink: /programmers/2025-07-12-Programmers-MySQL-E.-coli/
 
 toc: true
 toc_sticky: true
@@ -18,20 +18,36 @@ last_modified_at: 2025-07-12
 
 ## 🦥 본문
 
-안녕하세요, 오늘부터 며칠간은 Programmers 사이트의 문제를 풀어볼 예정입니다.  
-제가 해당 사이트를 이용하는 코딩테스트가 잡혀 그렇긴 하지만,  
-최근 많은 기업들이 이용하는 플랫폼이니만큼 여러분도 익숙해지면 도움될 것입니다.  
+안녕하세요, 오늘은 Programmers에서 MySQL 문제를 풀어볼 예정입니다.  
+전공자들을 포함한 많은 분들이 코딩테스트를 준비하실 때 대부분 알고리즘을 대비하지만,  
+일부 기업, 특히 데이터를 다루는 쪽에선 MySQL이나 Oracle로도 응시를 한답니다.  
+(보통 MySQL이나 Oracle 중 편한 걸 선택하는 방식입니다.)  
+저는 학부생 때 배웠기에 익숙한 MySQL을 선택해 풀어보겠습니다.  
+데이터 관련 분야에 관심있으신 분들은 함께하시면 도움될 겁니다!  
   
-참고로 LV0 문제들은 너무 쉬워서, 여기 따로 기록하진 않겠습니다.  
-(몇 문제 풀어보니... 코딩 입문자가 아니라면 굳이 시도할 필요는 없을 듯 합니다.)  
-그래서 여기선 LV1 문제부터 소개하겠습니다.  
-그럼 문제 만나보시죠!  
+그럼 LV1 문제부터 만나보시죠!  
   
-[택배 상자 꺼내기 - Programmers](https://school.programmers.co.kr/learn/courses/30/lessons/389478)  
+[특정 형질을 가진 대장균 찾기 - Programmers](https://school.programmers.co.kr/learn/courses/30/lessons/301646)  
   
-잘하면 자료구조를 쓰지 않고도 풀 수 있을 것 같지만,  
-아이디어가 금방 떠오르지 않아 그냥 2차원 배열을 쓰기로 했습니다.  
-그렇게 큰 수를 다루는 문제도 아니기 때문에 메모리도 문제없을 거고요.  
+첫 문제기에 MySQL 풀이 방식에 대해 잠깐 설명드리자면,  
+주어진 데이터(표)들에서 내가 원하는 값들을 원하는 형식으로 뽑아내야 합니다.  
+그래서 문제 조건을 보고, 필터링, 변환, 새로운 값 산출, 병합 등 수많은 방식 중  
+무엇이 필요한지를 생각해 그에 맞는 커맨드를 입력하면 됩니다.  
+  
+그리고, 대부분의 MySQL 문제는 SELECT (A) FROM (B) WHERE (C) 형태의 풀이를 가집니다.  
+'B 데이터에서 A 특성들을 C 조건에 맞는 것들만 뽑아온다.'라고 보시면 되겠습니다.  
+때문에 c++ 문제를 풀 때 #include<iostream>, int main()을 적고 시작하는 것처럼,  
+MySQL에서는 아래 세 줄을 먼저 적고 시작하시면 편합니다.  
+  
+SELECT  
+FROM  
+WHERE  
+  
+이렇게 말이죠.  
+  
+그럼 이제, 문제를 살펴보겠습니다.  
+  
+
   
 <script src="https://gist.github.com/redjo99/02cf0c3877020e7d70f4db95f31aa541.js"></script>  
   
